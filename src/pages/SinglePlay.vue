@@ -1,3 +1,3 @@
 <template>
-  <router-view />
+  싱글플레이
 </template>

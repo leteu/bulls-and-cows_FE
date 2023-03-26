@@ -1,3 +1,3 @@
 <template>
-  <router-view />
+  로비
 </template>

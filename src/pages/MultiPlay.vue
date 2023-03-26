@@ -1,3 +1,3 @@
 <template>
-  <router-view />
+  멀티플레이
 </template>
