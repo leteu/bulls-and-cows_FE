@@ -1,13 +1,15 @@
 <template>
-  <div class="main">
-    <div class="row main-visual">
+  <div :class="$style.main">
+    <div class="row" :class="$style['main-visual']">
       <img src="/favicon.svg" alt="" width="150">
-      <div class="column">
-        <div class="title">
-          숫자야구
-        </div>
-        <div class="desc">
-          아래 버튼을 선택하여 시작
+      <div class="col flex flex-center">
+        <div>
+          <div :class="$style.title">
+            숫자야구
+          </div>
+          <div :class="$style.desc">
+            아래 버튼을 선택하여 시작
+          </div>
         </div>
       </div>
     </div>
@@ -29,15 +31,15 @@ const goToLink = (name: string) => {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass" module>
 .main
   margin: 100px auto
   width: 500px
-  &-visual
+  .main-visual
     margin-bottom: 48px
-    .column
-      margin: auto 16px
-      .title
-        font-size: 32px
-        font-weight: bolder
+    .title
+      font-size: 48px
+      font-weight: bolder
+    .desc
+      font-size: 24px
 </style>
