@@ -73,7 +73,7 @@ i {
 .col { flex: 1; }
 @for $i from 0 through 12 {
   .col-#{$i} {
-    flex-basis: #{(100% / 12) * $i};
+    flex-basis: #{calc(100% / 12) * $i};
   }
 }
 
