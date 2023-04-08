@@ -1,6 +1,5 @@
-import 'src/css/reset.css'
-import 'src/css/style.css'
 import 'src/css/style.sass'
+import 'src/css/reset.scss'
 
 import { createApp } from 'vue'
 import './style.css'
