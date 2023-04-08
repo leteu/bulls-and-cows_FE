@@ -15,7 +15,7 @@
     </div>
     <div class="row gap">
       <BacBtn label="싱글 플레이" @click="goToLink('SinglePlay')" />
-      <BacBtn label="멀티 플레이" @click="goToLink('MultiLobby')" />
+      <BacBtn label="멀티 플레이" disable @click="goToLink('MultiLobby')" />
     </div>
   </div>
 </template>
