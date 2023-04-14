@@ -3,26 +3,36 @@
     <div class="play-board">
       <div class="plate-appearance-container">
         <template v-for="i in 8" :key="`plate-${i}`">
-          <PlateAppearance :value="hitMap.get(i)" />
+          <PlateAppearance :call="$single.getUmpireCall(i - 1)" :value="$single.getInning(i - 1)" />
         </template>
       </div>
-      <ColorPalette />
+      <ColorPalette @click:marble="onClickMarble" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onBeforeMount } from 'vue'
 
-import type { Inning, InningBatted } from 'src/types'
 import { ColorPalette } from 'src/components/ColorPalette'
 import { PlateAppearance } from 'src/components/PlateAppearance'
 import { MarbleType } from 'src/types'
+import { useSinglePlayStore } from 'src/store'
+import { storeToRefs } from 'pinia'
 
-const hitMap = ref<Map<Inning, InningBatted>>(new Map())
+const $single = useSinglePlayStore()
+const { currentInning } = storeToRefs($single)
 
-onMounted(() => {
-  hitMap.value.set(1, { first: MarbleType.Blue, second: MarbleType.Green, third: MarbleType.Orange, fourth: undefined })
+const onClickMarble = (marble: MarbleType) => {
+  if ((currentInning.value.value as MarbleType[]).includes(marble)) {
+    alert('이미 선택된 구슬입니다.')
+    return
+  }
+  $single.addMableToInning(currentInning.value.key, marble)
+}
+
+onBeforeMount(() => {
+  $single.getNewAnswer()
 })
 </script>
 
@@ -40,5 +50,7 @@ onMounted(() => {
     .plate-appearance-container
       display: grid
       grid-template-columns: repeat(2, 1fr)
+      grid-template-rows: repeat(4, 1fr)
+      grid-auto-flow: column
       gap: 16px
 </style>
