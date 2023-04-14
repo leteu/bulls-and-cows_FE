@@ -2,11 +2,25 @@ import { MarbleType } from './MarbleType'
 
 type Inning = number
 
-interface InningBatted {
-  first?: MarbleType
-  second?: MarbleType
-  third?: MarbleType
-  fourth?: MarbleType
-}
+type InningBatted =
+| []
+| [
+    MarbleType,
+  ]
+| [
+    MarbleType,
+    MarbleType,
+  ]
+| [
+    MarbleType,
+    MarbleType,
+    MarbleType,
+  ]
+| [
+    MarbleType,
+    MarbleType,
+    MarbleType,
+    MarbleType,
+  ]
 
 export { Inning, InningBatted }
