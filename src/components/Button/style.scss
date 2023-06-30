@@ -18,7 +18,7 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .
   width: 15rem;
   height: 4rem;
   border-radius: 1rem;
-  box-shadow: $shadow;
+  // box-shadow: $shadow;
   justify-self: center;
   display: flex;
   align-items: center;
@@ -30,8 +30,10 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .
     grid-column: 1 / 2;
     grid-row: 4 / 5;
     background: var(--primary);
+    // box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
+    //   inset -0.2rem -0.2rem 1rem var(--primary-dark), $shadow;
     box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
-      inset -0.2rem -0.2rem 1rem var(--primary-dark), $shadow;
+      inset -0.2rem -0.2rem 1rem var(--primary-dark);
     color: var(--greyLight-1);
 
     &:hover {
@@ -45,9 +47,9 @@ $inner-shadow: inset .2rem .2rem .5rem var(--greyLight-2), inset -.2rem -.2rem .
     &.btn__disabled {
       opacity: 0.7;
       cursor: not-allowed;
+      box-shadow: none;
       &:active {
-        box-shadow: inset 0.2rem 0.2rem 1rem var(--primary-light),
-        inset -0.2rem -0.2rem 1rem var(--primary-dark), $shadow;
+        box-shadow: none
       }
     }
   }

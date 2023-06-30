@@ -1,4 +1,4 @@
-import 'src/css/style.sass'
+import 'src/css/style.scss'
 import 'src/css/reset.scss'
 
 import { createApp } from 'vue'
