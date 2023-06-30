@@ -3,9 +3,10 @@ import 'src/components/PlateAppearance/style.scss'
 import {
   defineComponent,
   h,
+  PropType
 } from 'vue'
 import { Marble } from 'src/components/PlateAppearance'
-import { MarbleType } from 'src/types'
+import { InningBatted, MarbleType } from 'src/types'
 
 const ColorPalette = defineComponent({
   emits: {
@@ -13,18 +14,33 @@ const ColorPalette = defineComponent({
       return { num, e }
     }
   },
+  props: {
+    used: {
+      type: Array as unknown as PropType<MarbleType[]>,
+      required: true
+    }
+  },
   setup(props, { emit }) {
     return () => h(
       'div',
       { class: 'color-palette' },
       [
-        h(Marble, { batted: MarbleType.Orange, onClick: (e: Event) => emit('click:marble', MarbleType.Orange, e) }),
-        h(Marble, { batted: MarbleType.Purple, onClick: (e: Event) => emit('click:marble', MarbleType.Purple, e) }),
-        h(Marble, { batted: MarbleType.Green, onClick: (e: Event) => emit('click:marble', MarbleType.Green, e) }),
-        h(Marble, { batted: MarbleType.Yellow, onClick: (e: Event) => emit('click:marble', MarbleType.Yellow, e) }),
-        h(Marble, { batted: MarbleType.Blue, onClick: (e: Event) => emit('click:marble', MarbleType.Blue, e) }),
-        h(Marble, { batted: MarbleType.Pink, onClick: (e: Event) => emit('click:marble', MarbleType.Pink, e) }),
-      ]
+        MarbleType.Orange,
+        MarbleType.Purple,
+        MarbleType.Green,
+        MarbleType.Yellow,
+        MarbleType.Blue,
+        MarbleType.Pink,
+      ].map((v) => 
+      props.used.includes(v)
+        ? h('div', { class: { 'marble-place': true } })
+        : h(
+          Marble,
+          {
+            batted: v,
+            onClick: (e: Event) => emit('click:marble', v, e),
+          }
+        ))
     )
   },
 })

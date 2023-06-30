@@ -23,6 +23,12 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
   })
   const JumbotronUmpireCall = reactive<Map<Inning, Jumbotron>>(new Map())
 
+  const reset = () => {
+    inning.clear()
+    JumbotronUmpireCall.clear()
+    getNewAnswer()
+  }
+
   const getNewAnswer = () => {
     answer.value = Array.from(Array.from({ length: 4 }).reduce((acc: Set<MarbleType>) => {
       let random
@@ -43,9 +49,10 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
     inning.set(key, [...currentInning.value.value, value] as InningBatted)
 
     if (currentInning.value.value.length === 4) {
-      checkAnswer(key, currentInning.value.value)
+      const isWin = checkAnswer(key, currentInning.value.value)
+
       inning.set(key + 1, [])
-      return
+      return isWin
     }
   }
 
@@ -62,6 +69,8 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
         return UmpireCall.Out
       }).sort((a, b) => b - a) as Jumbotron
     )
+
+    return JumbotronUmpireCall.get(key)?.every((el) => el === UmpireCall.Strike)
   }
 
   const getUmpireCall = (key: Inning): Jumbotron => {
@@ -76,7 +85,9 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
     getNewAnswer,
     addMableToInning,
     getInning,
-    getUmpireCall
+    getUmpireCall,
+
+    reset
   }
 })
 

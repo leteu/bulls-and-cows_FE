@@ -3,10 +3,16 @@
     <div class="play-board">
       <div class="plate-appearance-container">
         <template v-for="i in 8" :key="`plate-${i}`">
-          <PlateAppearance :call="$single.getUmpireCall(i - 1)" :value="$single.getInning(i - 1)" />
+          <PlateAppearance
+            :call="$single.getUmpireCall(i - 1)"
+            :value="$single.getInning(i - 1)"
+          />
         </template>
       </div>
-      <ColorPalette @click:marble="onClickMarble" />
+      <ColorPalette
+        :used="currentInning.value"
+        @click:marble="onClickMarble"
+      />
     </div>
   </div>
 </template>
@@ -24,11 +30,21 @@ const $single = useSinglePlayStore()
 const { currentInning } = storeToRefs($single)
 
 const onClickMarble = (marble: MarbleType) => {
-  if ((currentInning.value.value as MarbleType[]).includes(marble)) {
-    alert('이미 선택된 구슬입니다.')
+  if ((currentInning.value.value as MarbleType[]).includes(marble)) return
+
+  const isWin = $single.addMableToInning(currentInning.value.key, marble)
+
+  if (isWin) {
+    alert('win!!')
+    $single.reset()
     return
   }
-  $single.addMableToInning(currentInning.value.key, marble)
+
+  if (currentInning.value.key >= 8) {
+    alert('lose!!')
+    $single.reset()
+    return
+  }
 }
 
 onBeforeMount(() => {

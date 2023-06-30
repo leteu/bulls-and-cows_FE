@@ -1,7 +1,7 @@
 <template>
   <div class="plate-appearance">
     <div class="marble-container">
-      <temeplate v-for="i in 4">
+      <template v-for="i in 4">
         <Marble
           v-if="props.value[i - 1]"
           :batted="props.value[i - 1]"
@@ -10,7 +10,7 @@
           v-else
           class="marble-place"
         />
-      </temeplate>
+      </template>
     </div>
     <JumbotronBox :call="call" />
   </div>
