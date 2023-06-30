@@ -17,6 +17,6 @@ export default defineConfig({
     global: {},
   },
   build: {
-    outDir: './docs'
+    outDir: './dist'
   }
 })
