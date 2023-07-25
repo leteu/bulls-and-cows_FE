@@ -15,6 +15,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'multi',
+        component: () => import('src/pages/MultiPlay.vue'),
         children: [
           {
             path: '',
@@ -23,8 +24,8 @@ const routes: RouteRecordRaw[] = [
           },
           {
             path: ':room',
-            name: 'MultiPlay',
-            component: () => import('src/pages/MultiPlay.vue')
+            name: 'MultiPlayRoom',
+            component: () => import('src/pages/MultiPlayRoom.vue')
           }
         ]
       },
