@@ -36,13 +36,13 @@ const JumbotronBox = defineComponent({
                   'jumbotron-indicator__ball': call === UmpireCall.Ball,
                   'jumbotron-indicator__strike': call === UmpireCall.Strike,
                 },
-              })
+              }),
             )
           : Array.from({ length: 4 }).map(() =>
               h(JumbotronIndicator, {
                 class: 'jumbotron-indicator jumbotron-indicator__out',
-              })
-            )
+              }),
+            ),
       )
   },
 })

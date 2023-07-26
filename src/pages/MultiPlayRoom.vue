@@ -1,6 +1,4 @@
-<template>
-  방 {{ roomName }}
-</template>
+<template>방 {{ roomName }}</template>
 
 <script lang="ts" setup>
 import { onBeforeMount, ref } from 'vue'
@@ -10,6 +8,6 @@ const $route = useRoute()
 const roomName = ref('')
 
 onBeforeMount(() => {
-  roomName.value = $route.params.room as string || ''
+  roomName.value = ($route.params.room as string) || ''
 })
 </script>

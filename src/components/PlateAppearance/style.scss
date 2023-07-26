@@ -44,23 +44,23 @@ $marble-colors:
 
       &__out {
         background-color: #222222;
-        -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 190, .75);
-        -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 190, .75);
-        box-shadow: 0px 0px 0px 0px rgba(255, 255, 190, .75);
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 190, 0.75);
+        -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 190, 0.75);
+        box-shadow: 0px 0px 0px 0px rgba(255, 255, 190, 0.75);
       }
 
       &__ball {
         background-color: #46e646;
-        -webkit-box-shadow: 0px 0px 15px 5px rgba(70, 230, 70, .75);
-        -moz-box-shadow: 0px 0px 15px 5px rgba(70, 230, 70, .75);
-        box-shadow: 0px 0px 15px 5px rgba(70, 230, 70, .75);
+        -webkit-box-shadow: 0px 0px 15px 5px rgba(70, 230, 70, 0.75);
+        -moz-box-shadow: 0px 0px 15px 5px rgba(70, 230, 70, 0.75);
+        box-shadow: 0px 0px 15px 5px rgba(70, 230, 70, 0.75);
       }
 
       &__strike {
         background-color: #ffe44a;
-        -webkit-box-shadow: 0px 0px 15px 5px rgba(255, 228, 74, .75);
-        -moz-box-shadow: 0px 0px 15px 5px rgba(255, 228, 74, .75);
-        box-shadow: 0px 0px 15px 5px rgba(255, 228, 74, .75);
+        -webkit-box-shadow: 0px 0px 15px 5px rgba(255, 228, 74, 0.75);
+        -moz-box-shadow: 0px 0px 15px 5px rgba(255, 228, 74, 0.75);
+        box-shadow: 0px 0px 15px 5px rgba(255, 228, 74, 0.75);
       }
     }
   }
@@ -78,9 +78,8 @@ $marble-colors:
   margin: 10%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background-image:
-    radial-gradient(100% 100% at 65% 65%,#fff6 6.5%,#fff0 7%),
-    radial-gradient(200% 200% at 33% 33%,#fff 4.5%,#fff0 5% 26.5%,#0003 27%);
+  background-image: radial-gradient(100% 100% at 65% 65%, #fff6 6.5%, #fff0 7%),
+    radial-gradient(200% 200% at 33% 33%, #fff 4.5%, #fff0 5% 26.5%, #0003 27%);
   box-shadow:
     0 1px 8px rgba(0, 0, 0, 0.36),
     0 1px 6px rgba(0, 0, 0, 0.48);

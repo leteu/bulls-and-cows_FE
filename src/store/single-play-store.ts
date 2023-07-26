@@ -3,8 +3,7 @@ import { Inning, InningBatted, Jumbotron, MarbleType, UmpireCall } from 'src/typ
 import { computed, reactive, ref } from 'vue'
 
 const getRandomMarble = (): MarbleType => {
-  const keys = Object.keys(MarbleType)
-    .filter(k => !(Math.abs(Number.parseInt(k)) + 1));
+  const keys = Object.keys(MarbleType).filter((k) => !(Math.abs(Number.parseInt(k)) + 1))
 
   return Math.floor(Math.random() * keys.length + 1)
 }
@@ -12,7 +11,7 @@ const getRandomMarble = (): MarbleType => {
 const useSinglePlayStore = defineStore('singlePlayStore', () => {
   const answer = ref<MarbleType[]>()
   const inning = reactive<Map<Inning, InningBatted>>(new Map())
-  const currentInning = computed((): { key: Inning, value: InningBatted } => {
+  const currentInning = computed((): { key: Inning; value: InningBatted } => {
     const temp = Array.from(inning)
     const last = temp.pop()
 
@@ -30,19 +29,21 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
   }
 
   const getNewAnswer = () => {
-    answer.value = Array.from(Array.from({ length: 4 }).reduce((acc: Set<MarbleType>) => {
-      let random
+    answer.value = Array.from(
+      Array.from({ length: 4 }).reduce((acc: Set<MarbleType>) => {
+        let random
 
-      for (;;) {
-        random = getRandomMarble()
+        for (;;) {
+          random = getRandomMarble()
 
-        if (!acc.has(random)) break
-      }
+          if (!acc.has(random)) break
+        }
 
-      acc.add(random)
+        acc.add(random)
 
-      return acc
-    }, new Set([])))
+        return acc
+      }, new Set([])),
+    )
   }
 
   const addMableToInning = (key: Inning, value: MarbleType) => {
@@ -63,11 +64,13 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
   const checkAnswer = (key: Inning, batted: InningBatted) => {
     JumbotronUmpireCall.set(
       key,
-      batted.map((marble, index) => {
-        if (answer.value?.[index] === marble) return UmpireCall.Strike
-        if (answer.value?.includes(marble)) return UmpireCall.Ball
-        return UmpireCall.Out
-      }).sort((a, b) => b - a) as Jumbotron
+      batted
+        .map((marble, index) => {
+          if (answer.value?.[index] === marble) return UmpireCall.Strike
+          if (answer.value?.includes(marble)) return UmpireCall.Ball
+          return UmpireCall.Out
+        })
+        .sort((a, b) => b - a) as Jumbotron,
     )
 
     return JumbotronUmpireCall.get(key)?.every((el) => el === UmpireCall.Strike)
@@ -87,7 +90,7 @@ const useSinglePlayStore = defineStore('singlePlayStore', () => {
     getInning,
     getUmpireCall,
 
-    reset
+    reset,
   }
 })
 

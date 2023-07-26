@@ -2,16 +2,18 @@
   <div
     class="btn"
     :class="{
-      'btn__primary': !secondary,
-      'btn__secondary': secondary,
-      'btn__disabled': disable,
+      btn__primary: !secondary,
+      btn__secondary: secondary,
+      btn__disabled: disable,
     }"
     @click="onClick"
-  ><p>{{ label }}</p></div>
+  >
+    <p>{{ label }}</p>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import "./style.scss"
+import './style.scss'
 
 const props = defineProps({
   label: {
@@ -25,7 +27,7 @@ const props = defineProps({
   disable: {
     type: Boolean,
     default: () => false,
-  }
+  },
 })
 
 const emit = defineEmits<{

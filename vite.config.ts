@@ -10,13 +10,13 @@ export default defineConfig({
       types: resolve(__dirname, './types'),
       app: resolve(__dirname, '.'),
       src: resolve(__dirname, './src'),
-    }
+    },
   },
   define: {
     'process.env': {},
     global: {},
   },
   build: {
-    outDir: './dist'
-  }
+    outDir: './dist',
+  },
 })

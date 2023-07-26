@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .js,.ts,.vue --fix ./",
-    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
-    "test": "eslint --ext .js,.ts,.vue ./"
+    "lint": "eslint --ext .ts,.vue --fix ./",
+    "format": "prettier --write \"**/*.{ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "test": "eslint --ext .ts,.vue ./"
   },
   "dependencies": {
     "animate.css": "^4.1.1",

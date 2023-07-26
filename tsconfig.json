@@ -15,19 +15,11 @@
     "noEmit": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "paths": {
-    "types/*": [
-      "types/*"
-    ],
-    "app/*": [
-      "*"
-    ],
-    "src/*": [
-      "src/*"
-    ],
+    "types/*": ["types/*"],
+    "app/*": ["*"],
+    "src/*": ["src/*"]
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }

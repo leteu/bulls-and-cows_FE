@@ -27,11 +27,11 @@ import { Marble, JumbotronBox } from '.'
 const props = defineProps({
   value: {
     type: Object as PropType<InningBatted>,
-    default: (): InningBatted => []
+    default: (): InningBatted => [],
   },
   call: {
     type: Array as unknown as PropType<Jumbotron>,
-    default: () => []
+    default: () => [],
   },
 })
 </script>

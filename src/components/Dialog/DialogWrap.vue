@@ -5,20 +5,23 @@
     leave-active-class="animate__animated animate__fadeOut"
     appear
   >
-    <div class="dialog" v-if="show">
+    <div
+      v-if="show"
+      class="dialog"
+    >
       <slot></slot>
     </div>
   </Transition>
 </template>
 
 <script lang="ts" setup>
-import 'animate.css';
+import 'animate.css'
 import './style.scss'
 
 defineProps({
   show: {
     type: Boolean,
     default: false,
-  }
+  },
 })
 </script>

@@ -13,11 +13,11 @@ const props = defineProps({
   inset: {
     type: Boolean,
     default: false,
-  }
+  },
 })
 
-const orientation = computed(() => props.vertical ? 'vertial' : 'horizontal')
-const inset = computed(() => props.inset ? '-inset' : '')
+const orientation = computed(() => (props.vertical ? 'vertial' : 'horizontal'))
+const inset = computed(() => (props.inset ? '-inset' : ''))
 
 const styles = computed(() => `separator separator--${orientation.value}${inset.value}`)
 </script>
@@ -27,7 +27,9 @@ const styles = computed(() => `separator separator--${orientation.value}${inset.
   border: 0;
   background: #dadada;
   margin: 0;
-  transition: background .3s, opacity .3s;
+  transition:
+    background 0.3s,
+    opacity 0.3s;
   flex-shrink: 0;
 
   &--horizontal {
@@ -44,7 +46,7 @@ const styles = computed(() => `separator separator--${orientation.value}${inset.
     width: 1px;
     height: auto;
     align-self: stretch;
-  
+
     &-inset {
       margin-top: 8px;
       margin-bottom: 8px;

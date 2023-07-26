@@ -2,7 +2,10 @@
   <div class="page">
     <div class="play-board">
       <div class="plate-appearance-container">
-        <template v-for="i in 8" :key="`plate-${i}`">
+        <template
+          v-for="i in 8"
+          :key="`plate-${i}`"
+        >
           <PlateAppearance
             :call="$single.getUmpireCall(i - 1)"
             :value="$single.getInning(i - 1)"

@@ -10,15 +10,19 @@ const useMulitPlayStore = defineStore('multiPlayStore', () => {
   const connected = ref(false)
 
   const connect = () => {
-    socket.connect();
+    socket.connect()
   }
   const disconnect = () => {
-    socket.disconnect();
+    socket.disconnect()
   }
 
   const send = () => {
     socket.emit('chat message', 'hihi')
   }
+
+  const getRoomList = () => {}
+
+  const createRoom = () => {}
 
   socket.on('connect', () => {
     connected.value = true
@@ -39,6 +43,9 @@ const useMulitPlayStore = defineStore('multiPlayStore', () => {
     connect,
     disconnect,
     send,
+
+    getRoomList,
+    createRoom,
   }
 })
 

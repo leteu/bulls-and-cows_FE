@@ -11,7 +11,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'single',
         name: 'SinglePlay',
-        component: () => import('src/pages/SinglePlay.vue')
+        component: () => import('src/pages/SinglePlay.vue'),
       },
       {
         path: 'multi',
@@ -20,16 +20,16 @@ const routes: RouteRecordRaw[] = [
           {
             path: '',
             name: 'MultiLobby',
-            component: () => import('src/pages/MultiPlayLobby.vue')
+            component: () => import('src/pages/MultiPlayLobby.vue'),
           },
           {
             path: ':room',
             name: 'MultiPlayRoom',
-            component: () => import('src/pages/MultiPlayRoom.vue')
-          }
-        ]
+            component: () => import('src/pages/MultiPlayRoom.vue'),
+          },
+        ],
       },
-    ]
+    ],
   },
   {
     path: '/:catchAll(.*)*',
