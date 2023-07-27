@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { useMulitPlayStore } from 'src/store/multi-play-store'
+import { useMulitPlayStore } from 'src/store'
 import { onBeforeMount } from 'vue'
 
 const $multi = useMulitPlayStore()

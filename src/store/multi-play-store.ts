@@ -8,6 +8,7 @@ const useMulitPlayStore = defineStore('multiPlayStore', () => {
   const socket = io(URL)
 
   const connected = ref(false)
+  const token = ref()
 
   const connect = () => {
     socket.connect()
@@ -26,6 +27,7 @@ const useMulitPlayStore = defineStore('multiPlayStore', () => {
 
   socket.on('connect', () => {
     connected.value = true
+    token.value = socket.id
   })
 
   socket.on('disconnect', () => {
@@ -39,6 +41,7 @@ const useMulitPlayStore = defineStore('multiPlayStore', () => {
   return {
     socket,
     connected,
+    token,
 
     connect,
     disconnect,

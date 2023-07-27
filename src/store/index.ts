@@ -1,5 +1,6 @@
 import { createPinia } from 'pinia'
 import { useSinglePlayStore } from './single-play-store'
+import { useMulitPlayStore } from './multi-play-store'
 
 const store = () => {
   const pinia = createPinia()
@@ -10,4 +11,4 @@ const store = () => {
 }
 
 export { store }
-export { useSinglePlayStore }
+export { useSinglePlayStore, useMulitPlayStore }

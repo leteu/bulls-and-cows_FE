@@ -1,0 +1,29 @@
+@keyframes scaleInLeft {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.scaleInLeft {
+  animation: scaleInLeft 0.2s;
+  transform-origin: left;
+}
+
+@keyframes scaleOutRight {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.scaleOutRight {
+  animation: scaleOutRight 0.2s;
+  transform-origin: right;
+}

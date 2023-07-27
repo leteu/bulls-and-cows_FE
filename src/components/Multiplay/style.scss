@@ -1,0 +1,40 @@
+.match-status {
+  $--wait: #b9b9b9;
+  $--play: #00ff00;
+  $--end: #00d9ff;
+  $--indicator-color: $--wait;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before {
+    width: 50%;
+    height: 50%;
+    background: $--indicator-color;
+  }
+
+  &::after {
+    width: 80%;
+    height: 80%;
+    background: rgba($--indicator-color, 0.5);
+  }
+
+  &__wait {
+    $--indicator-color: $--wait;
+  }
+  &__play {
+    $--indicator-color: $--play;
+  }
+  &__end {
+    $--indicator-color: $--end;
+  }
+}
